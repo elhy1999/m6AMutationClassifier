@@ -36,7 +36,10 @@ Follow the instructions [here](https://docs.github.com/en/repositories/working-w
 # Team Tasks:
 
 - [X] Data parsing (src/data_parser.py)
-- [ ] EDA (do we need to clean the data? How should we prepare the data for building the model)
+- [ ] EDA
+      * Do we need to clean the data?
+      * How should we prepare the data for building the model? (OHE for categorical features?)
+      * What genes should we use in the train/valid/test sets?
 - [ ] Research on models to use
 - [ ] Model building and evaluation
 - [ ] Compiling results
