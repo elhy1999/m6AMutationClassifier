@@ -37,6 +37,7 @@ Follow the instructions [here](https://docs.github.com/en/repositories/working-w
 
 - [X] Data parsing (src/data_parser.py)
 - [ ] EDA
+
       * Do we need to clean the data?
       * How should we prepare the data for building the model? (OHE for categorical features?)
       * What genes should we use in the train/valid/test sets?
