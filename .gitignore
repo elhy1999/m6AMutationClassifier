@@ -1,0 +1,57 @@
+# R specific
+*.RData
+*.Rhistory
+.Rproj.user/
+.Ruserdata
+
+# R environment
+.Renviron
+.Rprofile
+
+# Python specific
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+venv/
+__pypackages__/
+
+# Jupyter Notebook specific
+.ipynb_checkpoints/
+
+# Python environment
+.env
+.env.*
+
+# Environment files
+.Rhistory
+.Rapp.history
+.Renviron
+.Rproj.user/
+.ipynb_checkpoints/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*~
+
+# System files
+Icon
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.DS_Store
+
+# Data file
+dataset0.json
+dataset.csv
