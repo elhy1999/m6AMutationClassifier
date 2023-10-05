@@ -48,4 +48,12 @@ merged_df = merged_df[['gene_id', 'transcript_id', 'transcript_position', 'k_mer
                        'left_std', 'left_mean', 'mid_dwell', 'mid_std', 'mid_mean',
                        'right_dwell', 'right_std', 'right_mean', 'label']]
 
+# Dummy-encoding DRACH motifs
+# D: A --> 10, G --> 01, T --> 00
+merged_df['D1'], merged_df['D2'] = (merged_df['k_mer'].str[1] == 'A').astype(int), (merged_df['k_mer'].str[1] == 'G').astype(int)
+# A if 1, G if 0
+merged_df['R'] = (merged_df['k_mer'].str[2] == 'A').astype(int)
+# A if 10, C if 01, T if 00
+merged_df['H1'], merged_df['H2'] = (merged_df['k_mer'].str[5] == 'A').astype(int), (merged_df['k_mer'].str[5] == 'C').astype(int)
+
 merged_df.to_csv(SAVE_PATH)
