@@ -32,3 +32,15 @@ File Structure:
 
 Follow the instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
 
+
+# Team Tasks:
+
+- [X] Data parsing (src/data_parser.py)
+- [ ] EDA
+
+      * Do we need to clean the data?
+      * How should we prepare the data for building the model? (OHE for categorical features?)
+      * What genes should we use in the train/valid/test sets?
+- [ ] Research on models to use
+- [ ] Model building and evaluation
+- [ ] Compiling results
