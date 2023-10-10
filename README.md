@@ -7,6 +7,7 @@ File Structure:
 .
 ├─── README.md
 ├─── src
+├─── notebooks
 ├─── data
 │    └─── raw
 │         ├─── data.info

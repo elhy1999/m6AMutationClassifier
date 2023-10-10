@@ -17,6 +17,7 @@ SAVE_PATH = "./../data/raw/dataset.csv"
 
 
 # Converting dataset0.json into a dataframe
+print("Reading JSON file...")
 dataset0 = []
 with open(DATASET0_PATH, 'r') as file:
     for line in tqdm(file):
@@ -38,14 +39,28 @@ columns = ["transcript_id", "transcript_position", "k_mer",
            "right_dwell"  , "right_std"          , "right_mean"]
 processed_data_df = pd.DataFrame(processed_data, columns = columns)
 processed_data_df.transcript_position = processed_data_df.transcript_position.astype("int64")
-
+print("JSON file parsed!")
 
 # Combining both datasets
+print("Joining with data.info data...")
 data_info_df = pd.read_csv(DATA_INFO_PATH)
 merged_df = pd.merge(processed_data_df, data_info_df)
 # Reordering columns to move gene_id to the leftmost column
 merged_df = merged_df[['gene_id', 'transcript_id', 'transcript_position', 'k_mer', 'left_dwell',
                        'left_std', 'left_mean', 'mid_dwell', 'mid_std', 'mid_mean',
                        'right_dwell', 'right_std', 'right_mean', 'label']]
+print("Join completed!")
 
+# Dummy-encoding DRACH motifs
+print("Performing dummy encoding for DRACH motifs...")
+# D: A --> 10, G --> 01, T --> 00
+merged_df['D1'], merged_df['D2'] = (merged_df['k_mer'].str[1] == 'A').astype(int), (merged_df['k_mer'].str[1] == 'G').astype(int)
+# A if 1, G if 0
+merged_df['R'] = (merged_df['k_mer'].str[2] == 'A').astype(int)
+# A if 10, C if 01, T if 00
+merged_df['H1'], merged_df['H2'] = (merged_df['k_mer'].str[5] == 'A').astype(int), (merged_df['k_mer'].str[5] == 'C').astype(int)
+print("Encoding completed!")
+
+print("Writing to disk...")
 merged_df.to_csv(SAVE_PATH)
+print("File saved to:", SAVE_PATH)
