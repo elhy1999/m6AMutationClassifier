@@ -25,7 +25,7 @@ python build_naive_RF.py --n_trees 1000 --seed 1 --save_path MODEL_PATH --train_
 echo "RF Model trained!"
 echo ""
 
-echo "Stage 5/5Making predictions on test data with trained RF model..."
+echo "Stage 5/5: Making predictions on test data with trained RF model..."
 python predict_naive_RF.py --save_path MODEL_PATH --test_path TEST_PATH
 echo "Predictions made!"
 echo ""
