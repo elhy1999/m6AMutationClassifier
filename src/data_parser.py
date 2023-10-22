@@ -11,9 +11,9 @@ import pandas as pd
 import json
 from tqdm import tqdm
 
-DATASET0_PATH = "./../data/raw/dataset0.json"
+DATASET0_PATH = "./../data/raw/dataset2.json"
 DATA_INFO_PATH = "./../data/raw/data.info.csv"
-SAVE_PATH = "./../data/raw/dataset.csv"
+SAVE_PATH = "./../data/raw/dataset2.csv"
 
 if __name__ == "__main__":
     # Converting dataset0.json into a dataframe

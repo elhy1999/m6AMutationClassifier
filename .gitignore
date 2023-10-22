@@ -59,3 +59,4 @@ train_data.csv
 test_data.csv
 bag_data.csv
 dataset_scaled.csv
+data/
