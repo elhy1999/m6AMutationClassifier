@@ -1,23 +1,9 @@
-# Usage: 
-#   python predict_autoencoder.py [--save_path model_save_path] [--test_path test_dataset_path]
-# Default values for optional arguments:
-#   save_path: ./../model/autoencoder
-#   test_path: ./../data/curated/test_data.csv
-# Examples:
-#   python predict_naive_RF.py
-#   python predict_naive_RF.py --save_path ./../model/rf --test_path ./../data/curated/test_data.csv
-
-# This file uses an autoencoder model to predict on a new dataset.
-
-# Reading command line arguments
 import os
 import sys
 import argparse
-# Data manipulation packages
 import pandas as pd
 import numpy as np
-# Require machine learning tools
-from sklearn.metrics import auc
+from sklearn.metrics import roc_auc_score
 import joblib
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
@@ -30,11 +16,11 @@ def get_arguments():
     return parser.parse_args()
 
 def check_arguments(args):
-    # save_path
+    # model_path
     if (bool(args.model_path)):
         file_exists = os.path.exists(args.model_path)
         if (not file_exists):
-            print("Please input a valid save_path. Received:", args.model_path)
+            print("Please input a valid model_path. Received:", args.model_path)
             sys.exit()
         else:
             print("Model found at:", args.model_path)
@@ -48,32 +34,6 @@ def check_arguments(args):
         else:
             print("Test data found at:", args.test_path, "\n")
 
-def calculate_tpr_fpr(predictions, observations):
-    TP = sum((p == 1 and o == 1) for p, o in zip(predictions, observations))
-    FN = sum((p == 0 and o == 1) for p, o in zip(predictions, observations))
-    FP = sum((p == 1 and o == 0) for p, o in zip(predictions, observations))
-    TN = sum((p == 0 and o == 0) for p, o in zip(predictions, observations))
-
-    TPR = TP / (TP + FN)
-    FPR = FP / (FP + TN)
-
-    return TPR, FPR
-
-def generate_roc_curve(predictions):
-    
-    tpr = []
-    fpr = []
-    for threshold in thresholds:
-        classifications = (predictions >= threshold).astype(int)
-        observations = test_features_to_scale["label"]
-        statistics = calculate_tpr_fpr(classifications, observations)
-        tpr.append(statistics[0])
-        fpr.append(statistics[1])
-        
-    auroc = auc(fpr, tpr)
-    
-    return tpr, fpr, auroc
-
 if __name__ == "__main__":
 
     # Parsing command line arguments
@@ -86,25 +46,16 @@ if __name__ == "__main__":
     scaler = joblib.load(args.scaler_path)
     autoencoder = joblib.load(args.model_path)
     test_set = pd.read_csv(args.test_path)
-    test_features_to_scale = test_set.drop(columns=['gene_id'])
-    test_set_scaled = scaler.transform(test_features_to_scale)
+    test_features = test_set.drop(columns=['gene_id', 'label'])  # Assuming 'label' column exists
+    test_set_scaled = scaler.transform(test_features)
     print("Read completed!\n")
 
     # Making predictions
     print("Making predictions...")
     predictions = autoencoder.predict(test_set_scaled)
-    predictions_inverse_transform = scaler.inverse_transform(predictions)
+    mse = np.mean(np.power(test_features - scaler.inverse_transform(predictions), 2), axis=1)
     print("Predictions made!\n")
 
-    # # Calculate MSE
-    # error = np.mean(np.square(test_features_to_scale - predictions_inverse_transform), axis=1)
-    # print('Mean Squared Error:', round(np.mean(error), 2))
-
-    # test_features_to_scale["label"] = 0
-
-    # # Calculating AUROC
-    # thresholds = np.arange(0,1.01,0.01)
-    # tpr, fpr, auroc = generate_roc_curve(predictions_inverse_transform)
-    # print("AUROC:", auroc)
-
-    
+    # AUROC Calculation
+    auroc = roc_auc_score(test_set['label'], mse)  # Assuming 'label' column exists
+    print("AUROC:", auroc)

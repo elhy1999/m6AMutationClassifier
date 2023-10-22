@@ -9,6 +9,7 @@
 
 # Setting things up
 import keras
+import os
 from keras import layers
 import numpy as np
 import pandas as pd
@@ -36,6 +37,10 @@ if __name__ == "__main__":
     # Filter your data to keep non-anomalous data
     x_data_label_0 = processed_data[processed_data['label'] == 0].drop(columns=['label'])
 
+    # For test set, you want both label 0 and 1
+    x_data = processed_data.copy()
+
+
     # Preparing data for train/val/test split
     unique_bags = processed_data['gene_id'].unique()
     np.random.seed(1)
@@ -49,8 +54,17 @@ if __name__ == "__main__":
 
     train_df = x_data_label_0[x_data_label_0['gene_id'].isin(train_genes)]
     val_df = x_data_label_0[x_data_label_0['gene_id'].isin(val_genes)]
-    test_df = x_data_label_0[x_data_label_0['gene_id'].isin(test_genes)]
-    # test_df.to_csv("../data/curated/test_data.csv", index=False)
+    #test_df = x_data_label_0[x_data_label_0['gene_id'].isin(test_genes)]
+    test_df = x_data[x_data['gene_id'].isin(test_genes)] # we want label 1 as well
+
+    directory = "../data/curated"
+    file_path = os.path.join(directory, "test_data.csv")
+    # Check if the directory exists, if not, create it
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Save the DataFrame to CSV
+    test_df.to_csv(file_path, index=False)
     print("Data processed and split to training/validating/testing sets!\n")
     print("Test set saved to data/curated/test_data.csv.\n")
 
