@@ -11,8 +11,8 @@ def get_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_path', default="./../model/autoencoder")
     parser.add_argument('--scaler_path', default="./../model/autoencoder_scaler")
-    parser.add_argument('--test_path', default="./../data/raw/dataset2.csv")
-    parser.add_argument('--output_path', default="./../data/dataset2_autoencoder_predictions.csv")  # Modified output path
+    parser.add_argument('--test_path', default="./../data/raw/dataset.csv")
+    parser.add_argument('--output_path', default="./../data/teamrc4dsa_dataset0_1.csv")  # Modified output path
     return parser.parse_args()
 
 def check_arguments(args):
@@ -57,14 +57,14 @@ if __name__ == "__main__":
 
     # List of columns to keep
     selected_columns = [
-        'transcript_id', 'left_dwell', 'left_std', 'left_mean',
+        'gene_id', 'left_dwell', 'left_std', 'left_mean',
         'mid_dwell', 'mid_std', 'mid_mean',
         'right_dwell', 'right_std', 'right_mean'
     ]
 
     # Predict and generate desired output
     print("Predicting using autoencoder on test set...")
-    test_df_features = test_df[selected_columns].drop(columns=['transcript_id'])
+    test_df_features = test_df[selected_columns].drop(columns=['gene_id'])
     test_df_scaled = scaler.transform(test_df_features)
 
     test_df_scaled = scaler.transform(test_df_features)
