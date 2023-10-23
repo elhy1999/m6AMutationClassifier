@@ -10,8 +10,9 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
-DATA_READ_PATH = "./../data/raw/dataset.csv"
-DATA_WRITE_PATH = "./../data/curated/dataset_scaled.csv"
+DATA_READ_PATH = "./../../data/raw/dataset.csv"
+DATA_WRITE_PATH = "./../../data/curated/dataset_scaled.csv"
+BAG_META_PATH = "./../../data/raw/bag_meta.csv"
 
 if __name__ == "__main__":
     print("Reading data...")
@@ -20,7 +21,7 @@ if __name__ == "__main__":
 
     # Bringing in the bag_id column for each bag so that we can remove the gene_id, transcript_id,
     # and transcript_position columns for clarity
-    bag_meta = pd.read_csv("./../data/raw/bag_meta.csv").iloc[:,1:]
+    bag_meta = pd.read_csv(BAG_META_PATH).iloc[:,1:]
     data = data.merge(bag_meta, on = ["gene_id", "transcript_id", "transcript_position", "label"])
 
     feature_names = [pos + "_" + stat for pos in ["left", "mid", "right"] for stat in ["dwell", "std", "mean"]]

@@ -29,8 +29,8 @@ def get_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--n_trees', default='1000')
     parser.add_argument('--seed', default='1')
-    parser.add_argument('--save_path', default="./../model/rf")
-    parser.add_argument('--train_path', default="../data/curated/train_data.csv")
+    parser.add_argument('--save_path', default="./../../model/rf-ntrees-1000")
+    parser.add_argument('--train_path', default="../../data/curated/train_data.csv")
     return parser.parse_args()
 
 def check_arguments(args):

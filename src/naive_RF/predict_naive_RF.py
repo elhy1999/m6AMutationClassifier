@@ -25,8 +25,8 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--save_path', default="./../model/rf")
-    parser.add_argument('--test_path', default="./../data/curated/bag_data.csv")
+    parser.add_argument('--save_path', default="./../../model/rf")
+    parser.add_argument('--test_path', default="./../../data/curated/bag_data.csv")
     return parser.parse_args()
 
 def check_arguments(args):

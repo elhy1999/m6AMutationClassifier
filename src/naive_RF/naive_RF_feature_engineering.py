@@ -15,10 +15,10 @@ import random
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
-DATA_PATH = "../data/curated/dataset_scaled.csv"
-BAG_DATA_PATH = "../data/curated/bag_data.csv"
-TRAIN_DATA_PATH = "../data/curated/train_data.csv"
-TEST_DATA_PATH = "../data/curated/test_data.csv"
+DATA_PATH = "../../data/curated/dataset_scaled.csv"
+BAG_DATA_PATH = "../../data/curated/bag_data.csv"
+TRAIN_DATA_PATH = "../../data/curated/train_data.csv"
+TEST_DATA_PATH = "../../data/curated/test_data.csv"
 
 FEATURE_NAMES = ['left_dwell 0.0', 'left_dwell 0.05',
        'left_dwell 0.25', 'left_dwell 0.5', 'left_dwell 0.75',
