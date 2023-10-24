@@ -54,8 +54,15 @@ $RECYCLE.BIN/
 
 # Data files
 dataset0.json
+dataset1.json
 dataset.csv
 train_data.csv
 test_data.csv
 bag_data.csv
 dataset_scaled.csv
+
+# Archive folder
+archive/*
+
+# Large model files
+*/rf-ntrees-1000
