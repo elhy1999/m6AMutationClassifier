@@ -12,7 +12,7 @@ echo ""
 cd ./../../src/naive_RF/
 
 echo "Stage 1/5: Parsing data files..."
-python data_parser.py
+python data_parser.py dataset0
 echo "Data parsed!"
 echo ""
 
