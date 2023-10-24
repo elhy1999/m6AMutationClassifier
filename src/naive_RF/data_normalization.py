@@ -9,10 +9,12 @@
 # Setting things up
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import joblib
 
 DATA_READ_PATH = "./../../data/raw/dataset.csv"
 DATA_WRITE_PATH = "./../../data/curated/dataset_scaled.csv"
 BAG_META_PATH = "./../../data/raw/bag_meta.csv"
+SCALER_SAVE_PATH = "./../../model/minmaxscaler"
 
 if __name__ == "__main__":
     print("Reading data...")
@@ -39,4 +41,5 @@ if __name__ == "__main__":
     # Writing to disk
     print("Writing to disk...\nNote: The file will be written to:", DATA_WRITE_PATH)
     normalized_data.to_csv(DATA_WRITE_PATH)
+    joblib.dump(scaler, SCALER_SAVE_PATH)
     print("Writing completed!")

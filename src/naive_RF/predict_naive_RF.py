@@ -13,6 +13,7 @@
 import os
 import sys
 import argparse
+sys.path.append('../')
 # Data manipulation packages
 import pandas as pd
 import numpy as np
@@ -20,12 +21,13 @@ import numpy as np
 from sklearn.metrics import auc
 import joblib
 from naive_RF_feature_engineering import FEATURE_NAMES
+from util import generate_roc_curve
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--save_path', default="./../../model/rf")
+    parser.add_argument('--save_path', default="./../../model/rf-ntrees-1000")
     parser.add_argument('--test_path', default="./../../data/curated/bag_data.csv")
     return parser.parse_args()
 
@@ -47,33 +49,6 @@ def check_arguments(args):
             sys.exit()
         else:
             print("Test data found at:", args.test_path, "\n")
-
-def calculate_tpr_fpr(predictions, observations):
-    TP = sum((p == 1 and o == 1) for p, o in zip(predictions, observations))
-    FN = sum((p == 0 and o == 1) for p, o in zip(predictions, observations))
-    FP = sum((p == 1 and o == 0) for p, o in zip(predictions, observations))
-    TN = sum((p == 0 and o == 0) for p, o in zip(predictions, observations))
-
-    TPR = TP / (TP + FN)
-    FPR = FP / (FP + TN)
-
-    return TPR, FPR
-
-def generate_roc_curve(model):
-    predictions = model.predict(test_set.loc[:,FEATURE_NAMES])
-    
-    tpr = []
-    fpr = []
-    for threshold in thresholds:
-        classifications = (predictions >= threshold).astype(int)
-        observations = test_set.label
-        statistics = calculate_tpr_fpr(classifications, observations)
-        tpr.append(statistics[0])
-        fpr.append(statistics[1])
-        
-    auroc = auc(fpr, tpr)
-    
-    return tpr, fpr, auroc
 
 if __name__ == "__main__":
 
@@ -100,8 +75,7 @@ if __name__ == "__main__":
     print('Mean Absolute Error:', round(np.mean(errors), 2))
 
     # Calculating AUROC
-    thresholds = np.arange(0,1.01,0.01)
-    tpr, fpr, auroc = generate_roc_curve(rf)
+    tpr, fpr, auroc = generate_roc_curve(rf, test_set.loc[:, FEATURE_NAMES], test_set.label)
     print("AUROC:", auroc)
 
 

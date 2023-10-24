@@ -3,19 +3,26 @@ MODEL_PATH="./../../model/rf-ntrees-1000"
 TRAIN_PATH="./../../data/curated/train_data.csv"
 TEST_PATH="./../../data/curated/test_data.csv"
 
-echo "Stage 1/5: Checking if dataset0.json has been uncompressed..."
+echo "Stage 0/5: Checking if dataset0.json has been uncompressed..."
 cd ./../../data/raw/
 if [ ! -f dataset0.json ]; then gzip -d dataset0.json.gz; fi
 echo "dataset0.json prepared"
 echo ""
 
 cd ./../../src/naive_RF/
+
+echo "Stage 1/5: Parsing data files..."
+python data_parser.py
+echo "Data parsed!"
+echo ""
+
 echo "Stage 2/5: Performing data normalization..."
+mkdir -p ../../data/curated/
 python data_normalization.py
 echo "Data normalization completed!"
 echo ""
 
-echo "Stage 3/5: Perforning feature engineering for RF model..."
+echo "Stage 3/5: Performing feature engineering for RF model..."
 python naive_RF_feature_engineering.py
 echo "Feature engineering for RF model completed!"
 echo ""

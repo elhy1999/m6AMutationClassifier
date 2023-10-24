@@ -39,8 +39,6 @@ FEATURE_NAMES = ['left_dwell 0.0', 'left_dwell 0.05',
        'right_mean 0.25', 'right_mean 0.5', 'right_mean 0.75',
        'right_mean 0.95', 'right_mean 1.0']
 
-
-
 if __name__ == "__main__":
     print("Reading data...")
     data = pd.read_csv(DATA_PATH).iloc[:, 1:] # exclude the first column as it is the index

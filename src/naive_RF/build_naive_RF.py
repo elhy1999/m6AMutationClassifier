@@ -77,7 +77,7 @@ if __name__ == "__main__":
     
     # Training the model
     print(f"Training Random Forest model...\nn_trees: {args.n_trees}\nseed: {args.seed}")
-    rf = RandomForestRegressor(n_estimators = args.n_trees, random_state = args.seed)
+    rf = RandomForestRegressor(n_estimators = args.n_trees, random_state = args.seed, verbose=2)
     rf.fit(train_data.iloc[:,2:], train_data.iloc[:,1])
     print("Model training completed!\n")
 
