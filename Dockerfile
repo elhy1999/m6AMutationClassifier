@@ -15,4 +15,3 @@ RUN pip install -r requirements.txt
 
 # Define an entry point for the script
 WORKDIR ./../src/naive_RF
-CMD ["python3", "RF_testing_pipeline.py", "--test_path", "./../../data/raw/dataset2.json"]
