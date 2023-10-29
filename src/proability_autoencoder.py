@@ -34,6 +34,10 @@ def check_arguments(args):
         else:
             print("Test data found at:", args.test_path, "\n")
 
+def compute_bag_probability(predictions):
+    """Compute the probability that all instances in a bag are not mutated."""
+    return np.prod(1 - predictions)
+
 if __name__ == "__main__":
 
     # Parsing command line arguments
@@ -57,14 +61,14 @@ if __name__ == "__main__":
 
     # List of columns to keep
     selected_columns = [
-        'gene_id', 'left_dwell', 'left_std', 'left_mean',
+        'transcript_id','transcript_position', 'left_dwell', 'left_std', 'left_mean',
         'mid_dwell', 'mid_std', 'mid_mean',
         'right_dwell', 'right_std', 'right_mean'
     ]
 
     # Predict and generate desired output
-    print("Predicting using autoencoder on test set...")
-    test_df_features = test_df[selected_columns].drop(columns=['gene_id'])
+
+    test_df_features = test_df[selected_columns].drop(columns=['transcript_id', 'transcript_position'])
     test_df_scaled = scaler.transform(test_df_features)
 
     test_df_scaled = scaler.transform(test_df_features)
@@ -73,8 +77,46 @@ if __name__ == "__main__":
     score = (reconstruction_error - np.min(reconstruction_error)) / (np.max(reconstruction_error) - np.min(reconstruction_error))
     output_df = pd.DataFrame({
         'transcript_id': test_df['transcript_id'].values,
-        'transcript_position': test_df.index.values,
+        'transcript_position': test_df['transcript_position'].values,
         'score': score
     })
     output_df.to_csv(args.output_path, index=False)
     print(f"Results saved to {args.output_path}.")
+
+    # test_df_features = test_df[selected_columns].drop(columns=['transcript_id', 'transcript_position'])
+    # test_df_scaled = scaler.transform(test_df_features)
+
+    # # Here, assuming autoencoder's prediction is giving P(instance is mutated | features)
+    # predicted = autoencoder.predict(test_df_scaled)
+
+    # # Compute probabilities for each bag (unique combination of transcript_id and transcript_position)
+    # bags = test_df[['transcript_id', 'transcript_position']].drop_duplicates().values
+    # bags = bags[0]
+    # bag_probabilities = []
+
+    # print("Calculating based on bags...")
+    # # for bag in bags:
+    # #     bag_indices = test_df[(test_df['transcript_id'] == bag[0]) & (test_df['transcript_position'] == bag[1])].index
+    # #     bag_predictions = predicted[bag_indices]
+    # #     bag_prob = compute_bag_probability(bag_predictions)
+    # #     bag_probabilities.append(bag_prob)
+    # for bag in bags:
+    #     condition = (test_df['transcript_id'] == bag[0]) & (test_df['transcript_position'] == bag[1])
+    #     bag_indices = test_df.loc[condition].index
+    #     bag_predictions = predicted[bag_indices]
+    #     bag_prob = compute_bag_probability(bag_predictions)
+    #     bag_probabilities.append(bag_prob)
+    
+    # print("Done with bag calculations, extracting data...")
+    # output_df = pd.DataFrame({
+    #     'transcript_id': bags[:, 0],
+    #     'transcript_position': bags[:, 1],
+    #     'probability': bag_probabilities
+    # })
+
+    # print("Done with extracting data, saving data...")
+    # output_df.to_csv(args.output_path, index=False)
+    # print(f"Results saved to {args.output_path}.")
+
+
+

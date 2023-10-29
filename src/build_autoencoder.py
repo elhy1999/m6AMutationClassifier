@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     print("Processing data...")
     selected_columns = [
-        'gene_id','left_dwell', 'left_std', 'left_mean',
+        'transcript_id', 'left_dwell', 'left_std', 'left_mean',
         'mid_dwell', 'mid_std', 'mid_mean',
         'right_dwell', 'right_std', 'right_mean', 'label'
     ]
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
 
     # Preparing data for train/val/test split
-    unique_bags = processed_data['gene_id'].unique()
+    unique_bags = processed_data['transcript_id'].unique()
     np.random.seed(1)
     np.random.shuffle(unique_bags)
 
@@ -52,10 +52,10 @@ if __name__ == "__main__":
     val_genes = unique_bags[train_size:train_size + val_size]
     test_genes = unique_bags[train_size + val_size:]
 
-    train_df = x_data_label_0[x_data_label_0['gene_id'].isin(train_genes)]
-    val_df = x_data_label_0[x_data_label_0['gene_id'].isin(val_genes)]
-    #test_df = x_data_label_0[x_data_label_0['gene_id'].isin(test_genes)]
-    test_df = x_data[x_data['gene_id'].isin(test_genes)] # we want label 1 as well
+    train_df = x_data_label_0[x_data_label_0['transcript_id'].isin(train_genes)]
+    val_df = x_data_label_0[x_data_label_0['transcript_id'].isin(val_genes)]
+    #test_df = x_data_label_0[x_data_label_0['transcript_id'].isin(test_genes)]
+    test_df = x_data[x_data['transcript_id'].isin(test_genes)] # we want label 1 as well
 
     directory = "../data/curated"
     file_path = os.path.join(directory, "test_data.csv")
@@ -71,9 +71,9 @@ if __name__ == "__main__":
     # Scale data based on training set
     print("Scaling data...")
     scaler = MinMaxScaler()
-    features_to_scale = train_df.drop(columns=['gene_id'])
+    features_to_scale = train_df.drop(columns=['transcript_id'])
     train_df_scaled = scaler.fit_transform(features_to_scale)
-    val_features_to_scale = val_df.drop(columns=['gene_id'])
+    val_features_to_scale = val_df.drop(columns=['transcript_id'])
     val_df_scaled = scaler.transform(val_features_to_scale)
     joblib.dump(scaler, "../model/autoencoder_scaler")
     print("Data scaled and scaler saved!\n")
