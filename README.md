@@ -23,17 +23,15 @@ File Structure:
 └─── .gitignore
 ```
 
+# Git LFS
 **Note: Git LFS has been configured for this project. To install Git LFS, follow the installation steps below:**
 
 *MacOS:*
-
 1. `brew install git-lfs`
 2. `git lfs install`
 
 *Windows:*
-
 Follow the instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
-
 
 # Team Tasks:
 
