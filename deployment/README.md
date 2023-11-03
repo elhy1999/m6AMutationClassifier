@@ -23,8 +23,10 @@ After the command above has finished execution, you should see the path where th
 
 ## 2. Using AWS EC2
 
-**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** Since the project will be evaluated using AWS EC2, you will first need to install Docker into your AWS instance. To do this,
-you can simply copy the `docker_installation.sh` script found within this `/deployment` folder into your EC2 instance using the `scp` command. An example is given below:
+**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s).
+
+Since the project will be evaluated using AWS EC2, you will first need to install Docker into your AWS instance. To do this, you can simply copy the `docker_installation.sh` script found within this `/deployment` folder into your EC2 instance using the `scp`
+command. An example is given below:
 
 ```bash
 scp -i 'path/to/pem/file' ./docker_installation.sh ubuntu@XX.XXX.XX.XXX:~/
@@ -37,8 +39,12 @@ Note that you will have to change `XX.XXX.XX.XXX` to the IP address of your EC2 
 After this is completed, `ssh` into your EC2 instance. You should be able to find `docker_installation.sh` in your home directory (`~`). Next, run the following commands:
 
 ```bash
-chmod +x docker_installation.sh // This makes the .sh script into an executable
-./docker_installation.sh // This runs the script to install Docker into your EC2 instance
+sudo apt-get update
+sudo apt install dos2unix
+dos2unix docker_installation.sh
+
+chmod +x docker_installation.sh # This makes the .sh script into an executable
+./docker_installation.sh # This runs the script to install Docker into your EC2 instance
 ```
 
 Now that we have Docker installed, run the following command to pull our team's Docker image from the public registry:
@@ -54,3 +60,4 @@ python3 RF_testing_pipeline.py --test_path ./../../data/raw/dataset2.json
 ```
 
 After the command above has finished execution, you should see the path where the predictions have been written to.
+
