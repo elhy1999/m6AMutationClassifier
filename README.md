@@ -44,7 +44,7 @@ Follow the instructions [here](https://docs.github.com/en/repositories/working-w
 - [X] Research on models to use
 - [X] Model building and evaluation
 - [X] Compiling results
-- [ ] Reproducibility on AWS EC2 - Aaron
+- [X] Reproducibility on AWS EC2
 - [ ] Video Presentation (10 minutes)
 - [ ] Prediction of m6A sites in [all SG-NEx direct RNA-Seq samples](http://sg-nex-data.s3-website-ap-southeast-1.amazonaws.com/#data/processed_data/m6Anet/)
 - [ ] Repository Documentation - Ernest
