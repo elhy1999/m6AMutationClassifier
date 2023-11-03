@@ -5,10 +5,10 @@ FROM python:3.8
 WORKDIR /
 
 # Copy your script and data files into the container
-COPY ../src/ src/
-COPY ../data/ data/
-COPY ../model/ model/
-COPY ../requirements.txt requirements.txt
+COPY src/ src/
+COPY data/ data/
+COPY model/ model/
+COPY requirements.txt requirements.txt
 
 # Install any Python dependencies your script requires
 RUN pip install --upgrade pip
