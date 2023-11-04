@@ -23,6 +23,9 @@ After the command above has finished execution, you should see the path where th
 
 ## 2. Using AWS EC2
 
+![image](https://github.com/elhy1999/CancerMutationClassifier/assets/67943858/25804af6-0e8a-427d-86d1-7840ba696caa)
+
+
 **This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s).
 
 Since the project will be evaluated using AWS EC2, you will first need to install Docker into your AWS instance. To do this, you can simply copy the `docker_installation.sh` script found within this `/deployment` folder into your EC2 instance using the `scp`
