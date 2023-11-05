@@ -17,8 +17,8 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 DATA_PATH = "../../data/curated/dataset_scaled.csv"
 BAG_DATA_PATH = "../../data/curated/bag_data.csv"
-TRAIN_DATA_PATH = "../../data/curated/train_data.csv"
-TEST_DATA_PATH = "../../data/curated/test_data.csv"
+# TRAIN_DATA_PATH = "../../data/curated/train_data.csv"
+# TEST_DATA_PATH = "../../data/curated/test_data.csv"
 
 FEATURE_NAMES = ['left_dwell 0.0', 'left_dwell 0.05',
        'left_dwell 0.25', 'left_dwell 0.5', 'left_dwell 0.75',
@@ -57,17 +57,6 @@ if __name__ == "__main__":
     bag_data.columns = new_colnames
     print("Statistics generated!\n")
 
-    # Generating test samples
-    print("Performing train-test-split...")
-    print("Train: 80%, Test: 20%")
-    random.seed(1)
-    test_indices = random.sample(range(0, bag_data.shape[0]), bag_data.shape[0] // 5)
-    test_set = bag_data.iloc[test_indices, :].reset_index(drop = True)
-    train_set = bag_data.drop(index = test_indices).reset_index(drop = True)
-    print("Train-test-split completed!\n")
-
     print("Writing data files to disk...")
     bag_data.to_csv(BAG_DATA_PATH)
-    train_set.to_csv(TRAIN_DATA_PATH)
-    test_set.to_csv(TEST_DATA_PATH)
     print("Write completed!")

@@ -6,7 +6,7 @@
 #   save_path: ./../model/rf
 # Examples:
 #   python build_naive_RF.py
-#   python build_naive_RF.py --n_trees 1000 --seed 1 --save_path ./../model/rf --train_path ./../data/curated/train_data.csv
+#   python build_naive_RF.py --n_trees 1000 --seed 1 --save_path ./../model/rf --train_path ./../data/curated/bag_data.csv
 
 # This file builds a random forest model on summarized feature statistics for each bag.
 
@@ -30,7 +30,7 @@ def get_arguments():
     parser.add_argument('--n_trees', default='1000')
     parser.add_argument('--seed', default='1')
     parser.add_argument('--save_path', default="./../../model/rf-ntrees-1000")
-    parser.add_argument('--train_path', default="../../data/curated/train_data.csv")
+    parser.add_argument('--train_path', default="../../data/curated/bag_data.csv")
     return parser.parse_args()
 
 def check_arguments(args):
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     
     # Training the model
     print(f"Training Random Forest model...\nn_trees: {args.n_trees}\nseed: {args.seed}")
-    rf = RandomForestRegressor(n_estimators = args.n_trees, random_state = args.seed, verbose=2)
+    rf = RandomForestRegressor(n_estimators = args.n_trees, random_state = args.seed, verbose=2, n_jobs = 8)
     rf.fit(train_data.iloc[:,2:], train_data.iloc[:,1])
     print("Model training completed!\n")
 
