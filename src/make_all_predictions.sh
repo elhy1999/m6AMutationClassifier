@@ -8,8 +8,8 @@ do
     echo "Downloading data for $file_name"
     echo
     aws s3 cp --no-sign-request s3://sg-nex-data/data/processed_data/m6Anet/"$file_name"/data.json .
-    aws s3 cp --no-sign-request s3://sg-nex-data/data/processed_data/m6Anet/"$file_name"/data.index .
-    mv data.index "$file_name".index
+    aws s3 cp --no-sign-request s3://sg-nex-data/data/processed_data/m6Anet/"$file_name"/data.info .
+    mv data.index "$file_name".info
     cd ~/Git/CancerMutationClassifier/src/naive_RF
     echo "Making predictions"
     echo
