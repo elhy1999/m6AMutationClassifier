@@ -66,4 +66,4 @@ dataset_scaled.csv
 archive/*
 
 # Large model files
-*/rf-ntrees-1000
+rf-ntrees-1000
