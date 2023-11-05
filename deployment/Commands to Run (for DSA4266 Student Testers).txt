@@ -1,0 +1,17 @@
+Commands to Run
+
+scp -i 'path/to/pem/file' ./docker_installation.sh ubuntu@XX.XXX.XX.XXX:~/
+ssh -X -i 'path/to/pem/file' ubuntu@XX.XXX.XX.XXX:~/
+
+sudo apt-get update
+sudo apt install dos2unix
+dos2unix docker_installation.sh
+
+# This makes the .sh script into an executable
+chmod +x docker_installation.sh
+# This runs the script to install Docker into your EC2 instance
+./docker_installation.sh
+
+sudo docker run -it --name model_container --entrypoint bash elhy1999/quantrf-bagm6a:latest
+
+python3 RF_testing_pipeline.py --test_path ./../../data/raw/dataset2.json
