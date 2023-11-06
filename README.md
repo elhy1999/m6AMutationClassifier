@@ -87,6 +87,6 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 - [ ] Video Presentation (10 minutes) - Aaron
 - [X] Prediction of m6A sites in [all SG-NEx direct RNA-Seq samples](http://sg-nex-data.s3-website-ap-southeast-1.amazonaws.com/#data/processed_data/m6Anet/) - Ernest
 - [ ] Repository Documentation - Ernest, Leon
-- [ ] Model evaluation (for team report) - Ernest
-- [ ] Analyses on results (for team report) - Aaron, Leon, Ernest
+- [X] Model evaluation (for team report) - Ernest
+- [ ] Analyses on results (for team report) - Aaron, Leon
 - [ ] Report - Yu Jie
