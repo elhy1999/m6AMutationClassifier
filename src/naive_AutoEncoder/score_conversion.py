@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 # Define path
-INPUT_CSV_PATH = "./../data/teamrc4dsa_dataset0_1.csv"
-OUTPUT_CSV_PATH = "./../data/teamrc4dsa_dataset0_1.csv"
+INPUT_CSV_PATH = "./../../data/teamrc4dsa_dataset0_1.csv"
+OUTPUT_CSV_PATH = "./../../data/teamrc4dsa_dataset0_1.csv"
 
 print("Reading CSV file...")
 # Read the CSV file
