@@ -7,11 +7,11 @@
 │ │ ├── data.info.csv
 │ │ ├── dataset.csv
 │ │ ├── dataset0.json
-│ │ └── dataset0.json.gz
+│ │ └── dataset0.json.gz (removed, because file too lage)
 │ │ ├── dataset1.json
-│ │ └── dataset1.json.gz
+│ │ └── dataset1.json.gz (removed, because file too lage)
 │ │ ├── dataset2.json
-│ │ └── dataset2.json.gz
+│ │ └── dataset2.json.gz (removed, because file too lage)
 ├── curated
 │ ├── dataset1_naiveRF_predictions.csv
 │ ├── dataset2_naiveRF_predictions.csv
