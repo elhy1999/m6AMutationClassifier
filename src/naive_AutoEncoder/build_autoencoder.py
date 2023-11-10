@@ -18,7 +18,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
-DATA_PATH = "../../data/raw/dataset.csv"
+DATA_PATH = "../data/raw/dataset.csv"
 
 if __name__ == "__main__":
     

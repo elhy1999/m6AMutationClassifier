@@ -10,9 +10,9 @@ pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="./../../model/autoencoder")
-    parser.add_argument('--scaler_path', default="./../../model/autoencoder_scaler")
-    parser.add_argument('--test_path', default="./../../data/curated/test_data.csv")
+    parser.add_argument('--model_path', default="./../model/autoencoder")
+    parser.add_argument('--scaler_path', default="./../model/autoencoder_scaler")
+    parser.add_argument('--test_path', default="./../data/curated/test_data.csv")
     return parser.parse_args()
 
 def check_arguments(args):
