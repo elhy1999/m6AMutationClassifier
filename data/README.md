@@ -39,7 +39,9 @@
 
 3. **dataset.csv** - These files are the most complex, containing actual feature vectors for machine learning. It includes gene_id, transcript_id, transcript_position, k-mer (a substring of k characters), and various statistical measures (like mean, standard deviation, and dwell times) of these k-mers. The 'label' column is present here as well, which means this dataset might be used for supervised learning. The last few columns labeled D1, D2, R, HJ, H2 are additional features from extraction of the RNA.
 
-4. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
+4. **fully_mutated.csv** - List of transcript IDs and positions with mutations across all datasets.
+
+5. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
   - These files represent the predictions from direct RNA sequencing experiments.
   - Each file is labeled according to the cell line used (e.g., A549, Hct116, HepG2, K562, MCF7), the replicate number, and the run number, ensuring traceability and organization of the experimental data.
   - The content within these files is tabulated in three main columns:
