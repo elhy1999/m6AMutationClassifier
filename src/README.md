@@ -6,6 +6,7 @@ This repository contains two different modeling approaches for the prediction of
 ```
 .
 .
+├── data_preparation.R
 ├── src
 │ ├── naive_AutoEncoder
 │ │ ├── build_autoencoder.py
@@ -24,6 +25,8 @@ This repository contains two different modeling approaches for the prediction of
 ```
 
 ## Models Overview
+
+- `data_preparation.R`: Prepares the data to be fed into the model.
 
 ### naive_AutoEncoder
 - `build_autoencoder.py`: Constructs and trains the AutoEncoder model.
