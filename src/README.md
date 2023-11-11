@@ -5,9 +5,8 @@ This repository contains two different modeling approaches for the prediction of
 ## Directory Structure
 ```
 .
-.
-├── data_preparation.R
 ├── src
+│ ├── data_preparation.R
 │ ├── naive_AutoEncoder
 │ │ ├── build_autoencoder.py
 │ │ ├── predict_autoencoder.py
