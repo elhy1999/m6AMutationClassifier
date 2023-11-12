@@ -1,6 +1,5 @@
-# Datasets and Predictions
+# Welcome to `/data`!
 
-## File Structure:
 ```
 .
 ├── raw
