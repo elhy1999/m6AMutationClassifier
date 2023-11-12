@@ -8,7 +8,24 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 ## File Structure:
 ```
 .
-├─── src (TODO after autoencoder has been extracted out to a new folder)
+├─── src
+│    ├─── naive_Autoencoder
+│    |    ├─── build_autoencoder.py
+│    |    ├─── predict_autoencoder.py
+│    |    ├─── probability_autoencoder.py
+│    |    └─── score_conversion.py
+│    ├─── naive_RF
+│    |    ├─── build_naive_RF.py
+│    |    ├─── data_normalization.py
+│    |    ├─── data_parser.py
+│    |    ├─── naive_RF_feature_engineering.py
+│    |    ├─── predict_naive_RF.py
+│    |    ├─── RF_testing_pipeline.py
+│    |    └─── RF_training_pipeline.sh
+│    ├─── util.py
+│    ├─── data_preparation.R
+│    ├─── make_all_predictions.sh
+│    └─── README.md
 ├─── notebooks
 │    ├─── Autoencoder (TODO rename the notebook to a meaningful name)
 │    ├─── Random Forest
@@ -70,23 +87,4 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 > 2. `git lfs install`
 >
 > *Windows:*
-> Follow the instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
-
-# Team Tasks:
-
-- [X] Data parsing (src/data_parser.py)
-- [X] EDA
-      
-      * Do we need to clean the data?
-      * How should we prepare the data for building the model? (OHE for categorical features?)
-      * What genes should we use in the train/valid/test sets?
-- [X] Research on models to use
-- [X] Model building and evaluation
-- [X] Compiling results
-- [X] Reproducibility on AWS EC2
-- [ ] Video Presentation (10 minutes) - Aaron
-- [X] Prediction of m6A sites in [all SG-NEx direct RNA-Seq samples](http://sg-nex-data.s3-website-ap-southeast-1.amazonaws.com/#data/processed_data/m6Anet/) - Ernest
-- [ ] Repository Documentation - Ernest, Leon
-- [X] Model evaluation (for team report) - Ernest
-- [X] Analyses on results (for team report) - Aaron, Leon, Ernest
-- [X] Report
+> 1. Follow the instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
