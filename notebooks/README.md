@@ -1,4 +1,4 @@
-# Notebooks
+# Welcome to `/notebooks`!
 
 ## File Structure:
 ```
