@@ -25,7 +25,7 @@ This folder contains the code written to perform experimentation and analysis. T
 
 ## Autoencoder
 
-- `autoencoder_experimentation.ipynb`: This notebook includes an implementation of an autoencoding model
+- `autoencoder_experimentation.ipynb`: This notebook includes an implementation of the autoencoder model.
 
 ## Data Analysis
 
