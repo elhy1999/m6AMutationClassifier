@@ -3,33 +3,32 @@
 ## File Structure:
 ```
 .
-├── data
-│ ├── raw
-│ │ ├── bag.meta.csv
-│ │ ├── data.info.csv
-│ │ ├── dataset.csv
-│ │ ├── dataset0.json
-│ │ └── dataset0.json.gz (removed, because file too lage)
-│ │ ├── dataset1.json
-│ │ └── dataset1.json.gz (removed, because file too lage)
-│ │ ├── dataset2.json
-│ │ └── dataset2.json.gz (removed, because file too lage)
-├── curated
-│ ├── dataset1_naiveRF_predictions.csv
-│ ├── dataset2_naiveRF_predictions.csv
-│ ├── fully_mutated.csv
-│ ├── SGNex_A549_directRNA_replicate5_run1_predictions.csv
-│ ├── SGNex_A549_directRNA_replicate6_run1_predictions.csv
-│ ├── SGNex_Hct116_directRNA_replicate3_run1_predictions.csv
-│ ├── SGNex_Hct116_directRNA_replicate3_run4_predictions.csv
-│ ├── SGNex_Hct116_directRNA_replicate4_run3_predictions.csv
-│ ├── SGNex_HepG2_directRNA_replicate5_run2_predictions.csv
-│ ├── SGNex_HepG2_directRNA_replicate6_run1_predictions.csv
-│ ├── SGNex_K562_directRNA_replicate4_run1_predictions.csv
-│ ├── SGNex_K562_directRNA_replicate5_run1_predictions.csv
-│ ├── SGNex_K562_directRNA_replicate6_run1_predictions.csv
-│ ├── SGNex_MCF7_directRNA_replicate3_run1_predictions.csv
-│ └── SGNex_MCF7_directRNA_replicate4_run1_predictions.csv
+├── raw
+│    ├── bag.meta.csv
+│    ├── data.info.csv
+│    ├── dataset.csv
+│    ├── dataset0.json
+│    ├── dataset0.json.gz (removed, because file too lage)
+│    ├── dataset1.json
+│    ├── dataset1.json.gz (removed, because file too lage)
+│    ├── dataset2.json
+│    └── dataset2.json.gz (removed, because file too lage)
+└── curated
+     ├── dataset1_naiveRF_predictions.csv
+     ├── dataset2_naiveRF_predictions.csv
+     ├── fully_mutated.csv
+     ├── SGNex_A549_directRNA_replicate5_run1_predictions.csv
+     ├── SGNex_A549_directRNA_replicate6_run1_predictions.csv
+     ├── SGNex_Hct116_directRNA_replicate3_run1_predictions.csv
+     ├── SGNex_Hct116_directRNA_replicate3_run4_predictions.csv
+     ├── SGNex_Hct116_directRNA_replicate4_run3_predictions.csv
+     ├── SGNex_HepG2_directRNA_replicate5_run2_predictions.csv
+     ├── SGNex_HepG2_directRNA_replicate6_run1_predictions.csv
+     ├── SGNex_K562_directRNA_replicate4_run1_predictions.csv
+     ├── SGNex_K562_directRNA_replicate5_run1_predictions.csv
+     ├── SGNex_K562_directRNA_replicate6_run1_predictions.csv
+     ├── SGNex_MCF7_directRNA_replicate3_run1_predictions.csv
+     └── SGNex_MCF7_directRNA_replicate4_run1_predictions.csv
 ```
 
 
