@@ -64,3 +64,9 @@ python3 RF_testing_pipeline.py --test_path ./../../data/raw/dataset2.json
 
 After the command above has finished execution, you should see the path where the predictions have been written to.
 
+## 3. FAQ
+
+**Q: Why are there more `src`, `data`, and `model` folders within this `/deployment` directory?**
+
+A: The `/deployment/src` directory is the folder that is copied into the Docker container, whereas the `/src` directory is the folder that consists of all the scripts we ran, some of which ended up not being used by the final model.
+
