@@ -6,16 +6,11 @@
 ├── raw
 │    ├── bag.meta.csv
 │    ├── data.info.csv
-│    ├── dataset.csv
-│    ├── dataset0.json
-│    ├── dataset0.json.gz (removed, because file too lage)
-│    ├── dataset1.json
-│    ├── dataset1.json.gz (removed, because file too lage)
-│    ├── dataset2.json
-│    └── dataset2.json.gz (removed, because file too lage)
+│    └── dataset2
 └── curated
-     ├── dataset1_naiveRF_predictions.csv
-     ├── dataset2_naiveRF_predictions.csv
+     ├── teamrc4dsa_dataset1.csv
+     ├── teamrc4dsa_dataset2.csv
+     ├── teamrc4dsa_dataset3.csv
      ├── fully_mutated.csv
      ├── SGNex_A549_directRNA_replicate5_run1_predictions.csv
      ├── SGNex_A549_directRNA_replicate6_run1_predictions.csv
@@ -36,13 +31,11 @@
 
 2. **data.info.csv** - This file contains information about gene_id, transcript_id, transcript_position, and label. It provides a simple mapping between these entities for reference.
 
-3. **dataset.csv** - This file is the parsed CSV file of dataset0.json
+3. **fully_mutated.csv** - Table of 141 significant (transcript ID, transcript positions) with mutations across all datasets. Results of Analysis 1.
 
-4. **fully_mutated.csv** - Table of 141 significant (transcript ID, transcript positions) with mutations across all datasets. Results of Analysis 1.
+4. **teamrc4dsa_dataset*.csv**: These files contain the random forest's prediction on datasets 1, 2, and 3.
 
-5. teamrc4dsa_dataset*.csv: These files contain the random forest's prediction on datasets 1, 2, and 3.
-
-6. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
+5. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
   - These files represent the predictions from direct RNA sequencing experiments.
   - Each file is labeled according to the cell line used (e.g., A549, Hct116, HepG2, K562, MCF7), the replicate number, and the run number.
   - The content within these files is tabulated in three main columns:
