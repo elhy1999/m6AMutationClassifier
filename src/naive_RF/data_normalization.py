@@ -3,7 +3,7 @@
 # This script normalizes the raw dataset that have been parsed by the data_parser.py script for training machine learning models.
 
 # **Note: The script writes to the "/data/curated/" folder. Ensure that you have previously created that folder.
-# **Note: Ensure that you are in the project's `src` directory and the data files are in the project's `data` directory. Otherwise, the code will 
+# **Note: Ensure that you are in the project's `src/naive_RF` directory and the data files are in the project's `data` directory. Otherwise, the code will 
 # fail due to inconsistent file paths**
 
 # Setting things up

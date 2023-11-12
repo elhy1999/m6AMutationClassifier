@@ -3,4 +3,3 @@
 
 # Welcome to `/model`!
 This folder consists of the saved models which we explored. The first model is the **autoencoder model**, which unfortunately, did not produce the results that we hoped for. The second model is the **random forest model**. Both models are further explained in the `/notebooks` directory, which contain information about our findings discovered during the course of the project.
-
