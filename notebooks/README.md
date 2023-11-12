@@ -1,6 +1,5 @@
 # Welcome to `/notebooks`!
 
-## File Structure:
 ```
 .
 notebooks
