@@ -40,7 +40,9 @@
 
 4. **fully_mutated.csv** - Table of 141 significant (transcript ID, transcript positions) with mutations across all datasets. Results of Analysis 1.
 
-5. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
+5. teamrc4dsa_dataset*.csv: These files contain the random forest's prediction on datasets 1, 2, and 3.
+
+6. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
   - These files represent the predictions from direct RNA sequencing experiments.
   - Each file is labeled according to the cell line used (e.g., A549, Hct116, HepG2, K562, MCF7), the replicate number, and the run number.
   - The content within these files is tabulated in three main columns:
