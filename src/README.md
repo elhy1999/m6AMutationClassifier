@@ -5,26 +5,26 @@ This repository contains two different modeling approaches for the prediction of
 ## Directory Structure
 ```
 .
-├── src
-│ ├── data_preparation.R
-│ ├── naive_RF
-│ │ ├── build_naive_RF.py
-│ │ ├── data_normalization.py
-│ │ ├── data_parser.py
-│ │ ├── naive_RF_feature_engineering.py
-│ │ ├── predict_naive_RF.py
-│ │ ├── RF_testing_pipeline.py
-│ │ └── RF_training_pipeline.sh
-│ ├── make_all_predictions.sh
-│ ├── archived
-│ │ ├── AutoEncoder
-│ │ │ ├── build_autoencoder.py
-│ │ │ └── predict_autoencoder.py
+├── significant_transcripts_positions.R
+├── make_all_predictions.sh
+├── util.py
+├── naive_RF
+│   ├── build_naive_RF.py
+│   ├── data_normalization.py
+│   ├── data_parser.py
+│   ├── naive_RF_feature_engineering.py
+│   ├── predict_naive_RF.py
+│   ├── RF_testing_pipeline.py
+│   └── RF_training_pipeline.sh
+└── archived
+    └── AutoEncoder
+        ├── build_autoencoder.py
+        └── predict_autoencoder.py
 ```
 
 ## Models Overview
 
-- `data_preparation.R`: Prepares the data to be fed into the model.
+- `significant_transcripts_positions.R`: Prepares the data to be fed into the model.
 
 ### naive_RF
 - `build_naive_RF.py`: Builds the Random Forest model.
