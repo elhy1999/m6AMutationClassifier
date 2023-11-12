@@ -23,7 +23,7 @@ After the command above has finished execution, you should see the path where th
 
 ## 2. Using AWS EC2
 
-![image](https://github.com/elhy1999/CancerMutationClassifier/assets/67943858/25804af6-0e8a-427d-86d1-7840ba696caa)
+![image](https://github.com/leontanwh/teamrc4dsa/blob/main/resources/EC2%20Pipeline.png)
 
 
 **This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s). The YouTube tutorial runs some lines of code on the command line. For your convenience, you can find these commands in the `Commands to Run (for DSA4266 Student Testers).txt` file in this directory!
@@ -37,7 +37,7 @@ scp -i 'path/to/pem/file' ./docker_installation.sh ubuntu@XX.XXX.XX.XXX:~/
 
 Note that you will have to change `XX.XXX.XX.XXX` to the IP address of your EC2 instance, which you can find here:
 
-![image](https://github.com/elhy1999/CancerMutationClassifier/assets/67943858/02ea07ed-8130-4ae8-82f7-3a8f6571104e)
+![image](https://github.com/leontanwh/teamrc4dsa/blob/main/resources/Research%20Gateway%20SS.png)
 
 After this is completed, `ssh` into your EC2 instance. You should be able to find `docker_installation.sh` in your home directory (`~`). Next, run the following commands:
 
