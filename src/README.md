@@ -1,6 +1,6 @@
 # m6A Prediction Models
 
-This repository contains two different modeling approaches for the prediction of m6A, a type of methylation modification in RNA molecules. We have implemented a Random Forest (RF) classifier to tackle this prediction problem. We also attempted to train an AutoEncoder model, but decided not to use it due to its poor performance, though the code remains here for archival purposes.
+This repository contains two different modeling approaches. We have implemented a Random Forest (RF) classifier to tackle this prediction problem. We also attempted to train an AutoEncoder model, but decided not to develop it further due to its poor initial performance, though the code remains here for archival purposes.
 
 ## Directory Structure
 ```
@@ -41,4 +41,4 @@ This repository contains two different modeling approaches for the prediction of
 - `predict_autoencoder.py`: Predicts outcomes using the trained AutoEncoder model.
 
 
-For more detailed information on each component, please refer to the specific files and notebooks within the respective directories. Note this our 
+For more detailed information on each component, please refer to the specific files and notebooks within the respective directories.

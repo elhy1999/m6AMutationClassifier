@@ -1,7 +1,7 @@
 # Usage: python build_autoencoder.py
 
 # This file builds an autoencoder on summarized feature statistics for each bag.
-# **Note: Ensure that you are in the project's `src/naive_AutoEncoder` directory and the data files are in the project's `data` directory. Otherwise, the code will 
+# **Note: Ensure that you are in the project's `src/archived/AutoEncoder` directory and the data files are in the project's `data` directory. Otherwise, the code will 
 # fail due to inconsistent file paths**
 
 # Setting things up
@@ -31,12 +31,12 @@ if __name__ == "__main__":
         'right_dwell', 'right_std', 'right_mean', 'label'
     ]
     processed_data = data[selected_columns]
-    # Filter your data to keep non-anomalous data
+
+    # Filter data to keep non-anomalous data (i.e. label==0)
     x_data_label_0 = processed_data[processed_data['label'] == 0].drop(columns=['label'])
 
-    # For test set, you want both label 0 and 1
+    # For test set, both labels 0 and 1 are needed
     x_data = processed_data.copy()
-
 
     # Preparing data for train/val/test split
     unique_bags = processed_data['transcript_id'].unique()
@@ -51,7 +51,6 @@ if __name__ == "__main__":
 
     train_df = x_data_label_0[x_data_label_0['transcript_id'].isin(train_genes)]
     val_df = x_data_label_0[x_data_label_0['transcript_id'].isin(val_genes)]
-    #test_df = x_data_label_0[x_data_label_0['transcript_id'].isin(test_genes)]
     test_df = x_data[x_data['transcript_id'].isin(test_genes)] # we want label 1 as well
 
     directory = "../../../data/curated"
@@ -77,8 +76,9 @@ if __name__ == "__main__":
 
     # Initialising autoencoder model with parameters
     print("Initialising autoencoder model...")
+    
     # Number of desired features/dimensions in encoded data
-    encoding_dim = 3  # Adjust as needed
+    encoding_dim = 3  # Hyperparameter: number of layers
 
     # Number of features/dimensions in original data
     input_shape = (train_df_scaled.shape[1],)  
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # Create the input layer
     input_img = keras.Input(shape=input_shape)
 
-    # Defining the architecture of the autoencoder - this model has 3 hidden layers
+    # Defining the architecture of the autoencoder - this model has 3 hidden layers (encoding_dim = 3)
     # First hidden layer
     hidden1_size = 64  # Hyperparameter: number of neurons in the first hidden layer
     hidden1 = layers.Dense(hidden1_size, activation='relu')(input_img)
