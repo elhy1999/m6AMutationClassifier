@@ -53,9 +53,8 @@ $RECYCLE.BIN/
 *.DS_Store
 
 # Data files
-dataset0.json
-dataset1.json
-dataset2.json
+dataset*.json
+dataset0.json.gz
 dataset.csv
 train_data.csv
 test_data.csv
