@@ -18,8 +18,6 @@ notebooks
     └── Naive RF Prediction Pipeline.ipynb
 ```
 
-# Welcome to `/notebooks`!
-
 This folder contains the code written to perform experimentation and analysis. The finalized code in this directory are written to form scripts saved under the `/src` directory
 
 ## Autoencoder
