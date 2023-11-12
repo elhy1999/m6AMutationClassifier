@@ -32,22 +32,21 @@
 ```
 
 
-1. **bag.meta.csv** - This file contain metadata about bags, which refer to a "bagging" method in machine learning or a collection method in bioinformatics. It contains columns for bag_id, gene_id, transcript_id, transcript_position, label, and n_reads. The 'label' and 'n_reads' columns will be used for a classification task, where 'label' denotes the class, and 'n_reads' refer to the number of reads supporting a given transcript.
+1. **bag.meta.csv** - This file contain metadata about bags in the context of this multiple instance learning problem. It contains columns for bag_id, gene_id, transcript_id, transcript_position, label, and n_reads. The 'label' and 'n_reads' columns will be used for a classification task, where 'label' denotes the class, and 'n_reads' refer to the number of reads supporting a given transcript.
 
-2. **data.info.csv** - This file is detailing more information about the genetic data, with gene_id, transcript_id, transcript_position, and label. It provides a simple mapping between these entities for reference.
+2. **data.info.csv** - This file contains information about gene_id, transcript_id, transcript_position, and label. It provides a simple mapping between these entities for reference.
 
-3. **dataset.csv** - These files are the most complex, containing actual feature vectors for machine learning. It includes gene_id, transcript_id, transcript_position, k-mer (a substring of k characters), and various statistical measures (like mean, standard deviation, and dwell times) of these k-mers. The 'label' column is present here as well, which means this dataset might be used for supervised learning. The last few columns labeled D1, D2, R, HJ, H2 are additional features from extraction of the RNA.
+3. **dataset.csv** - This file is the parsed CSV file of dataset0.json
 
-4. **fully_mutated.csv** - List of transcript IDs and positions with mutations across all datasets.
+4. **fully_mutated.csv** - Table of 141 significant (transcript ID, transcript positions) with mutations across all datasets. Results of Analysis 1.
 
 5. **SGNex_[CellLine]_directRNA_replicate[Number]_run[Number]_predictions.csv**
   - These files represent the predictions from direct RNA sequencing experiments.
-  - Each file is labeled according to the cell line used (e.g., A549, Hct116, HepG2, K562, MCF7), the replicate number, and the run number, ensuring traceability and organization of the experimental data.
+  - Each file is labeled according to the cell line used (e.g., A549, Hct116, HepG2, K562, MCF7), the replicate number, and the run number.
   - The content within these files is tabulated in three main columns:
     - `transcript_id`: The unique identifier for the transcript.
     - `transcript_position`: The numeric position of the transcript.
-    - `score`: The predicted value or measurement obtained from the analysis.
-  - The files' standardized naming and structured format facilitate comparative analysis and data management across different experimental runs.
+    - `score`: The predicted probability that the given bag has an m6A mutation. This prediction is made by the Random Forest model.
 
 ### Example File Details
 
