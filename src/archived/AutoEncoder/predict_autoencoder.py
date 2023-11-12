@@ -1,3 +1,10 @@
+# Usage: python predict_autoencoder.py
+
+# This file uses a trained autoencoder to predict on a new dataset.
+# **Note: Ensure that you are in the project's `src/archived/AutoEncoder` directory and the data files are in the project's `data` directory. Otherwise, the code will 
+# fail due to inconsistent file paths**
+
+# Setting things up
 import os
 import sys
 import argparse
