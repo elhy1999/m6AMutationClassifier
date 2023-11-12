@@ -77,7 +77,7 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 │    ├─── deliverables
 │    |    ├─── handout_project2_RNAModifications.html
 │    |    └─── Student_evaluation_guideline.html
-│    └─── literature
+│    └─── research
 ├─── README.md
 ├─── .gitignore
 └─── .gitattributes
