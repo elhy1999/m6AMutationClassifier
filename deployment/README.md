@@ -26,7 +26,7 @@ After the command above has finished execution, you should see the path where th
 ![image](https://github.com/elhy1999/CancerMutationClassifier/assets/67943858/25804af6-0e8a-427d-86d1-7840ba696caa)
 
 
-**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s).
+**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s). The YouTube tutorial runs some lines of code on the command line. For your convenience, you can find these commands in the `Commands to Run (for DSA4266 Student Testers).txt` file in this directory!
 
 Since the project will be evaluated using AWS EC2, you will first need to install Docker into your AWS instance. To do this, you can simply copy the `docker_installation.sh` script found within this `/deployment` folder into your EC2 instance using the `scp`
 command. An example is given below:
@@ -63,4 +63,10 @@ python3 RF_testing_pipeline.py --test_path ./../../data/raw/dataset2.json
 ```
 
 After the command above has finished execution, you should see the path where the predictions have been written to.
+
+## 3. FAQ
+
+**Q: Why are there more `src`, `data`, and `model` folders within this `/deployment` directory?**
+
+A: The `/deployment/src` directory is the folder that is copied into the Docker container, whereas the `/src` directory is the folder that consists of all the scripts we ran, some of which ended up not being used by the final model.
 
