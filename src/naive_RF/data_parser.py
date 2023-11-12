@@ -3,7 +3,7 @@
 # This file parses the data from `dataset0.json` and `data.info.csv`, and outputs a combined dataset that contains all features and labels in a single 
 # dataset. This combined dataset is named `dataset.csv` and is written to the project's `data` directory.
 
-# **Note: Ensure that you are in the project's `src` directory and the data files are in the project's `data` directory. Otherwise, the code will 
+# **Note: Ensure that you are in the project's `src/naive_RF` directory and the data files are in the project's `data` directory. Otherwise, the code will 
 # fail due to inconsistent file paths**
 
 # Setting things up

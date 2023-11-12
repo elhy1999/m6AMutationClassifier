@@ -1,11 +1,8 @@
 # Usage: python build_autoencoder.py
 
 # This file builds an autoencoder on summarized feature statistics for each bag.
-# **Note: Ensure that you are in the project's `src` directory and the data files are in the project's `data` directory. Otherwise, the code will 
+# **Note: Ensure that you are in the project's `src/naive_AutoEncoder` directory and the data files are in the project's `data` directory. Otherwise, the code will 
 # fail due to inconsistent file paths**
-
-# All parameters need to be adjusted within this file.
-# Will implement argparse later on
 
 # Setting things up
 import keras
@@ -18,7 +15,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
-DATA_PATH = "../../data/raw/dataset.csv"
+DATA_PATH = "../../../data/raw/dataset.csv"
 
 if __name__ == "__main__":
     
@@ -29,7 +26,7 @@ if __name__ == "__main__":
 
     print("Processing data...")
     selected_columns = [
-        'transcript_id', 'left_dwell', 'left_std', 'left_mean',
+        'transcript_id', 'transcript_position','left_dwell', 'left_std', 'left_mean',
         'mid_dwell', 'mid_std', 'mid_mean',
         'right_dwell', 'right_std', 'right_mean', 'label'
     ]
@@ -57,7 +54,7 @@ if __name__ == "__main__":
     #test_df = x_data_label_0[x_data_label_0['transcript_id'].isin(test_genes)]
     test_df = x_data[x_data['transcript_id'].isin(test_genes)] # we want label 1 as well
 
-    directory = "../data/curated"
+    directory = "../../../data/curated"
     file_path = os.path.join(directory, "test_data.csv")
     # Check if the directory exists, if not, create it
     if not os.path.exists(directory):
@@ -71,11 +68,11 @@ if __name__ == "__main__":
     # Scale data based on training set
     print("Scaling data...")
     scaler = MinMaxScaler()
-    features_to_scale = train_df.drop(columns=['transcript_id'])
+    features_to_scale = train_df.drop(columns=['transcript_id', 'transcript_position'])
     train_df_scaled = scaler.fit_transform(features_to_scale)
-    val_features_to_scale = val_df.drop(columns=['transcript_id'])
+    val_features_to_scale = val_df.drop(columns=['transcript_id', 'transcript_position'])
     val_df_scaled = scaler.transform(val_features_to_scale)
-    joblib.dump(scaler, "../model/autoencoder_scaler")
+    joblib.dump(scaler, "../../../model/autoencoder_scaler")
     print("Data scaled and scaler saved!\n")
 
     # Initialising autoencoder model with parameters
@@ -119,7 +116,7 @@ if __name__ == "__main__":
     
     # Saving model
     print("Saving model...")
-    joblib.dump(autoencoder, "../model/autoencoder")
+    joblib.dump(autoencoder, "../../../model/autoencoder")
     print("Model saved!")
 
     

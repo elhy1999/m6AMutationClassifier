@@ -5,14 +5,16 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import roc_auc_score
 import joblib
+from sklearn.linear_model import LogisticRegression
 
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', default="./../../model/autoencoder")
-    parser.add_argument('--scaler_path', default="./../../model/autoencoder_scaler")
-    parser.add_argument('--test_path', default="./../../data/curated/test_data.csv")
+    parser.add_argument('--model_path', default="./../../../model/autoencoder")
+    parser.add_argument('--scaler_path', default="./../../../model/autoencoder_scaler")
+    parser.add_argument('--test_path', default="./../../../data/curated/test_data.csv")
+    parser.add_argument('--output_path', default="./../../../data/teamrc4dsa_dataset0_1.csv")
     return parser.parse_args()
 
 def check_arguments(args):
@@ -45,17 +47,30 @@ if __name__ == "__main__":
     print("Reading from disk...")
     scaler = joblib.load(args.scaler_path)
     autoencoder = joblib.load(args.model_path)
-    test_set = pd.read_csv(args.test_path)
-    test_features = test_set.drop(columns=['gene_id', 'label'])  # Assuming 'label' column exists
+    test_df = pd.read_csv(args.test_path)
+    test_features = test_df.drop(columns=['transcript_id', 'transcript_position','label'])  # Assuming 'label' column exists
     test_set_scaled = scaler.transform(test_features)
     print("Read completed!\n")
 
-    # Making predictions
+    # Reconstructing dataset with autoencoder
     print("Making predictions...")
     predictions = autoencoder.predict(test_set_scaled)
-    mse = np.mean(np.power(test_features - scaler.inverse_transform(predictions), 2), axis=1)
+    reconstruction_error = np.mean(np.power(test_features - scaler.inverse_transform(predictions), 2), axis=1)
     print("Predictions made!\n")
 
     # AUROC Calculation
-    auroc = roc_auc_score(test_set['label'], mse)  # Assuming 'label' column exists
+    auroc = roc_auc_score(test_df['label'], reconstruction_error)  # Assuming 'label' column exists
     print("AUROC:", auroc)
+
+    # Prediction of labels with logistic regression
+    log_reg = LogisticRegression()
+    reshaped_errors = reconstruction_error.to_frame()
+    log_reg.fit(reshaped_errors, test_df['label'])
+    probabilities = log_reg.predict_proba(reshaped_errors)
+    output_df = pd.DataFrame({
+        'transcript_id': test_df['transcript_id'].values,
+        'transcript_position': test_df['transcript_position'].values,
+        'score': probabilities[:,0]
+    })
+    output_df.to_csv(args.output_path, index=False)
+    print(f"Results saved to {args.output_path}.")
