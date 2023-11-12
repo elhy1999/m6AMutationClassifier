@@ -57,9 +57,9 @@
   - The above line from the example file indicates that for transcript `ENST00000602323` at position `244`, the prediction score is `0.032`.
 
 ### Cellines
-A549: A human lung carcinoma cell line.
-Hct116: A human colorectal carcinoma cell line.
-HepG2: A human liver cancer cell line.
-K562: A human chronic myelogenous leukemia cell line.
-MCF7: A human breast cancer cell line.
+- A549: A human lung carcinoma cell line.
+- Hct116: A human colorectal carcinoma cell line.
+- HepG2: A human liver cancer cell line.
+- K562: A human chronic myelogenous leukemia cell line.
+- MCF7: A human breast cancer cell line.
 
