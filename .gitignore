@@ -54,6 +54,7 @@ $RECYCLE.BIN/
 
 # Data files
 dataset*.json
+dataset0.json.gz
 dataset.csv
 train_data.csv
 test_data.csv
