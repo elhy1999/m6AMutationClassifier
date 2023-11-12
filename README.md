@@ -23,19 +23,23 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 │    |    ├─── RF_testing_pipeline.py
 │    |    └─── RF_training_pipeline.sh
 │    ├─── util.py
-│    ├─── data_preparation.R
+│    ├─── significant_transcripts_positions.R
 │    ├─── make_all_predictions.sh
 │    └─── README.md
 ├─── notebooks
-│    ├─── Autoencoder (TODO rename the notebook to a meaningful name)
+│    ├─── Autoencoder
+│    |    ├─── autoencoder_experimentation.ipynb
 │    ├─── Random Forest
+│    |    ├─── Model Evaluation.ipynb
 │    |    ├─── Naive RF Model.ipynb
 │    |    └─── Naive RF Prediction Pipeline.ipynb
-│    ├─── Analysis with PCA.ipynb
-│    ├─── Data Parsing.ipynb
-│    ├─── Dataset Normalization.ipynb
-│    ├─── EDA.ipynb
-│    └─── Feature Extraction.ipynb
+│    ├─── Data Analysis
+│    |    ├─── Analysis with PCA.ipynb
+│    |    ├─── Analysis - Identifier Transcripts.ipynb
+│    |    ├─── Data Parsing.ipynb
+│    |    ├─── Dataset Normalization.ipynb
+│    |    ├─── EDA.ipynb
+│    |    └─── Feature Extraction.ipynb
 ├─── data
 │    ├─── raw
 │    |    ├─── bag_meta.csv
