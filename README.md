@@ -1,9 +1,9 @@
 # Prediction of m6A RNA modifications from direct RNA-Seq data
 
-Welcome to TeamRC4DSA's repository! This repository contains the code, our findings, as well as the references we used. Feel free to poke around, but take note that most of our findings are documented within the `README.md` file in the `/notebooks` directory.
+Welcome to TeamRC4DSA's repository! This genomics project is about the detection of m6A modifications on cell lines using RNA-Seq data, taken from the [SG-NEx Project](https://github.com/GoekeLab/sg-nex-data). This repository contains the code, our findings, as well as the references we used. Feel free to poke around!
 
 > [!NOTE]
-> *To student testers for DSA4266, while you are free to roam around the repository, note that you will find the `/deployment` and `/notebooks` folders to be of greater relevance to you.*
+> *To student testers for DSA4266, while you are free to roam around the repository, note that you will find the `/deployment` folder to be of greater relevance to you.*
 
 ## File Structure:
 ```
@@ -92,3 +92,8 @@ Welcome to TeamRC4DSA's repository! This repository contains the code, our findi
 >
 > *Windows:*
 > 1. Follow the instructions [here](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
+
+# Acknowledgements:
+Chen, Ying, et al. "A systematic benchmark of Nanopore long read RNA sequencing for transcript level analysis in human cell lines." bioRxiv (2021). doi: https://doi.org/10.1101/2021.04.21.440736
+
+The SG-NEx data was accessed on 12 November 2023 at registry.opendata.aws/sg-nex-data.
