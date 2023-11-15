@@ -1,5 +1,5 @@
 # Welcome to `/deployment`!
-This guide will cover how you can use our model to make predictions on new datasets. For student testers of DSA4266, you may read **1. Docker** for context. However, only **2. Using AWS EC2** will be relevant to reproduce our model on AWS EC2.
+This guide will cover how you can use our model to make predictions on new datasets. For student testers of DSA4266, you may read the section "**1. Docker**" for context. However, only the second section "**2. Using AWS EC2**" will be relevant to reproduce our model on AWS EC2.
 
 ## 1. Docker
 
