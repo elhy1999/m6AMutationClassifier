@@ -26,7 +26,7 @@ After the command above has finished execution, you should see the path where th
 ![image](https://github.com/leontanwh/teamrc4dsa/blob/main/resources/EC2%20Pipeline.png)
 
 
-**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found [here](https://youtu.be/cgdmauyna_s). The YouTube tutorial runs some lines of code on the command line. For your convenience, you can find these commands in the `Commands to Run (for DSA4266 Student Testers).txt` file in this directory!
+**This section is particularly relevant for student testers for DSA4266. Please use the Ubuntu 20 04 Large (m6a.large or larger) instance.** A video demonstration of this entire section can be found in [this YouTube tutorial](https://youtu.be/cgdmauyna_s). The YouTube tutorial runs some lines of code on the command line. For your convenience, you can find these commands in the `Commands to Run (for DSA4266 Student Testers).txt` file in this directory!
 
 Since the project will be evaluated using AWS EC2, you will first need to install Docker into your AWS instance. To do this, you can simply copy the `docker_installation.sh` script found within this `/deployment` folder into your EC2 instance using the `scp`
 command. An example is given below:
@@ -70,3 +70,8 @@ After the command above has finished execution, you should see the path where th
 
 A: The `/deployment/src` directory is the folder that is copied into the Docker container, whereas the `/src` directory is the folder that consists of all the scripts we ran, some of which ended up not being used by the final model.
 
+**Q: Why does my Docker container abruptly stop with the "Killed" message?**
+
+A: This message indicates that the memory consumption by the Docker container has exceeded the default limit of 2GB. This is usually a result of using a dataset that is too large. To circumvent this, you will need to allocate more memory resources to the Docker container to raise the default limit. More information can be found [here](https://stackoverflow.com/questions/44417159/docker-process-killed-with-cryptic-killed-message).
+
+Note: This is not a problem for DSA4266 student testers, as the dataset used for the demonstration (`dataset2`) is a rather small dataset.
