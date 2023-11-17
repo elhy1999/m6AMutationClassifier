@@ -1,9 +1,13 @@
 # Prediction of m6A RNA modifications from direct RNA-Seq data
 
-Welcome to TeamRC4DSA's repository! This genomics project is about the detection of m6A modifications on cell lines using RNA-Seq data, taken from the [SG-NEx Project](https://github.com/GoekeLab/sg-nex-data). This repository contains the code, our findings, as well as the references we used. Feel free to poke around!
+Welcome to the repository! This is a genomics project about the detection of m6A modifications on cell lines using RNA-Seq data, taken from the [SG-NEx Project](https://github.com/GoekeLab/sg-nex-data). This repository contains the code, our findings, as well as the references we used. Feel free to poke around!
 
-> [!NOTE]
-> *To student testers for DSA4266, while you are free to roam around the repository, note that you will find the `/deployment` folder to be of greater relevance to you.*
+## Contributors:
+
+* Ernest Liu: [@elhy1999](https://github.com/elhy1999/)
+* Leon Tan [@leontanwh](https://github.com/leontanwh/)
+* Aaron Lee Wei Qi [@aaronlee1999](https://github.com/aaronlee1999/)
+* Poh Yu Jie [@PokezardVGC](https://github.com/PokezardVGC)
 
 ## File Structure:
 ```
